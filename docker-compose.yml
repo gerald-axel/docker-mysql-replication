@@ -1,0 +1,30 @@
+version: '2'
+services:
+  master_1:
+    image: mysql
+    container_name: master_1
+    environment: 
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3311:3306
+    volumes:
+      - master_1:/var/lib/mysql
+      - ./mysqld.cnf_1:/etc/mysql/mysql.conf.d/mysqld.cnf
+
+  master_2:
+    image: mysql
+    container_name: master_2
+    environment: 
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3312:3306
+    volumes:
+      - master_2:/var/lib/mysql
+      - ./mysqld.cnf_2:/etc/mysql/mysql.conf.d/mysqld.cnf
+
+volumes:
+  master_1:
+  master_2:
+
+
+
